@@ -32,6 +32,13 @@ jobs:
      
     - name: mvn package
       run: mvn package
+      
+    - name: Descargar
+      uses: actions/download-artefact@v3
+      with:
+        name: static-site
+    - name: Test artifact download
+      run: ls -R
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
